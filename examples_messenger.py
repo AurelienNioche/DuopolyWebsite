@@ -43,7 +43,7 @@ def example_server_send_message():
     send_request(
         demandType="serverSpeaks",
         userName="Michael",
-        message="Hello Michael!"
+        message="Hello, I'm the admin!"
     )
 
 
@@ -54,7 +54,7 @@ def example_user_send_message():
     send_request(
         demandType="clientSpeaks",
         userName="Michael",
-        message="Hello, my name is Michael!"
+        message="Hello, I'm Michael!"
     )
 
 
@@ -104,13 +104,17 @@ def example_user_receives_message():
         n_messages = int(args[1])
         print("I received {} new message(s).".format(n_messages))
         if n_messages:
+            to_reply = ""
             for arg in args[2:]:
-                print("I send confirmation for message '{}'.".format(arg))
-                send_request(
-                    demandType="clientReceiptConfirmation",
-                    userName=user_name,
-                    message=arg
-                )
+                print("I received message '{}'.".format(arg))
+                to_reply += "/{}".format(arg)
+
+            print("I send confirmation for messages.")
+            send_request(
+                demandType="clientReceiptConfirmation",
+                userName=user_name,
+                message=to_reply
+            )
 
 
 def empty_tables():
@@ -124,7 +128,7 @@ def empty_tables():
     )
 
 
-def main():
+def test_all_functions():
 
     push.main("messenger.php")
     print()
@@ -137,6 +141,21 @@ def main():
     example_server_send_message()
     print()
     example_user_receives_message()
+
+
+def main():
+
+    # push.main("messenger.php")
+    # print()
+    # empty_tables()
+    # print()
+    # example_user_send_message()
+    # print()
+    # example_server_receives_message()
+    # print()
+    example_server_send_message()
+    print()
+    # example_user_receives_message()
 
 
 if __name__ == "__main__":

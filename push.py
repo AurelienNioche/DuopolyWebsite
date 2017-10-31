@@ -22,7 +22,7 @@ def main(f_name="client_request.php"):
         password = param["password"]
 
         # File to send
-        f = open(f_name, 'rb')
+        f = open("php/{}".format(f_name), 'rb')
 
         ftp = FTP(host, user, password)
 
