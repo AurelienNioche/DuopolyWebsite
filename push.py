@@ -40,5 +40,9 @@ def main(f_name="client_request.php"):
 
 if __name__ == "__main__":
 
-    file_to_push = sys.argv[1]
-    main(file_to_push)
+    try:
+        file_to_push = sys.argv[1]
+        main(file_to_push)
+
+    except IndexError:
+        raise Exception("You should indicate which file you want to push (e.g. 'python push.py script.php').")

@@ -108,14 +108,31 @@ def main():
     #     request="none",
     #     userName="tamere"
     # )
+    import numpy as np
     sign_in_request(
         demand_type="register",
-        Email="nioche.aurelien@gmail.com",
+        Email="duopoly35@yopmail.com",
         Age="31",
         MtId="tamere",
         Nationality="French"
 
     )
+
+    # client_request(
+    #     demand_type="tutorial_done",
+    #     gameId="none",
+    #     request="none",
+    #     userName="azer=:;,",
+    #     role="customer"
+    # )
+    #
+    # client_request(
+    #     demand_type="did_the_tutorial",
+    #     gameId="none",
+    #     request="none",
+    #     userName="azer=:;,",
+    #     role="customer"
+    # )
 
 
 if __name__ == "__main__":
