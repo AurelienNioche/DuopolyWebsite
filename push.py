@@ -1,6 +1,6 @@
 # coding=utf-8
 import sys
-from os import path
+from os import path, mkdir
 from shutil import copy
 import json
 from ftplib import FTP
@@ -11,7 +11,9 @@ def main(f_name="client_request.php"):
     try:
 
         if not path.exists("parameters/network.json"):
-            copy("templates/network.json", "parameters")
+            if not path.exists("parameters"):
+                mkdir(parameters)
+            copy("templates/network.json", "parameters/network.json")
 
         with open("parameters/network.json") as f:
 
